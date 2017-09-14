@@ -1,8 +1,8 @@
 <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
-        width="500"
-        height="500"
+        width="2000"
+        height="2000"
         style="background-color: #f8f8f8"
 >
 
@@ -65,13 +65,16 @@
 
     <!--试试pattern-->
     <defs>
-        <pattern id="pattern1" x="0" y="0" width="0.2" height="0.2">
+        <pattern id="pattern1" patternUnits="objectBoundingBox" x="0" y="0" width="0.2" height="0.2">
             <circle cx="10" cy="10" r="5" fill="red"></circle>
             <polygon points="30 10 60 50 0 50" fill="green"></polygon>
         </pattern>
     </defs>
-    <rect width="200" height="150" x="300" y="405" fill="url(#pattern1)"></rect>
+    <rect width="200" height="150" x="300" y="410" fill="url(#pattern1)"></rect>
 
+
+    <!--试试path-->
+    <path fill="none" stroke="black" stroke-width="3" d="M 600 100 L 800 500 H 600 V 700"></path>
 
 </svg>
 
