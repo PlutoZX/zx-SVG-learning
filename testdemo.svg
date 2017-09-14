@@ -2,9 +2,11 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     width="960"
-
+    height="1500"
+    style="margin: 0 auto;"
 >
 
+    <!--定义矩形块-->
     <defs>
         <g id="rect_box">
             <rect width="145" height="50" x="0" y="0" fill="#f8f8f8" stroke="#e5e5e5" stroke-width="2"></rect>
@@ -13,15 +15,27 @@
         </g>
     </defs>
 
+    <!--定义蓝色圆-->
     <defs>
         <g id="circle_blue">
             <circle cx="0" cy="0" r="30" fill="#67b2d3"></circle>
-            <text x="-20" y="-25">免登陆</text>
-            <text x="-20" y="0">跳转量</text>
-            <text x="-20" y="25">120</text>
+            <text x="-20" y="-15" style="font-size: 12px;" fill="#fff">免登陆</text>
+            <text x="-20" y="0" style="font-size: 12px" fill="#fff">跳转量</text>
+            <text x="-20" y="15" style="font-size: 12px" fill="#fff">120</text>
         </g>
     </defs>
 
+    <!--定义绿色圆-->
+    <defs>
+        <g id="circle_green">
+            <circle cx="0" cy="0" r="30" fill="#77ba55"></circle>
+            <text x="-20" y="-15" style="font-size: 10px;" fill="#fff">80%</text>
+            <text x="-30" y="0" style="font-size: 10px" fill="#fff">(6400-120)</text>
+            <text x="-20" y="15" style="font-size: 10px" fill="#fff">/8000</text>
+        </g>
+    </defs>
+
+    <!--定义绿色大箭头-->
     <defs>
         <g id="arrow_big">
             <rect width="30" height="20" x="10" fill="#77ba55"></rect>
@@ -33,18 +47,13 @@
                 "
                 fill="#77ba55"
             ></polygon>
-            <text x="15" y="20" style="font-size: 12px; color: #fff;">81%</text>
+            <text x="15" y="20" style="font-size: 12px;" fill="#fff">81%</text>
         </g>
     </defs>
 
-    <use xlink:href="#rect_box" x="480" y="0"></use>
-
-    <use xlink:href="#circle_blue" x="300" y="90"></use>
-
-    <use xlink:href="#arrow_big"></use>
 
 
-    <!--试试组合分组-->
+    <!--组合分组-->
     <defs>
         <g id="big_group1">
             <use xlink:href="#rect_box" x="0" y="0"></use>
@@ -56,9 +65,53 @@
             <use xlink:href="#rect_box" x="0" y="285"></use>
         </g>
     </defs>
-    <use xlink:href="#big_group1" x="480" y="300"></use>
+    <use xlink:href="#big_group1" x="417.5" y="50"></use>
+
+    <!--蓝色箭头线1-->
+    <defs>
+        <g id="arrowline1">
+            <path fill="#67b2d3" stroke="#67b2d3" stroke-width="1" d="M 0 5 H 100 A 15 15 0 0 1 115 15 V 375 H 110 L 117.5 385 125 375 H 120 V 15 A 20 20 0 0 0 100 0 H 0"></path>
+        </g>
+    </defs>
+    <!--蓝色箭头线2-->
+    <defs>
+        <g id="arrowline2">
+            <path fill="#67b2d3" stroke="#67b2d3" stroke-width="1" d="M 0 5 H -100 A 15 15 0 0 0 -115 15 V 375 H -110 L -117.5 385 -125 375 H -120 V 15 A 20 20 0 0 1 -100 0 H 0"></path>
+        </g>
+    </defs>
+    <!--绿色箭头线1-->
+    <defs>
+        <g id="arrowline3">
+            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 5 H 65 A 15 15 0 0 1 80 20 V 80 H 75 L 82.5 90 89.5 80 H 85 V 20 A 20 20 0 0 0 65 0 H 0"></path>
+        </g>
+    </defs>
+    <!--绿色箭头线2-->
+    <defs>
+        <g id="arrowline4">
+            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 5 H -65 A 15 15 0 0 0 -80 20 V 80 H -75 L -82.5 90 -89.5 80 H -85 V 20 A 20 20 0 0 1 -65 0 H 0"></path>
+        </g>
+    </defs>
+    <!--红色箭头线-->
+    <defs>
+        <g id="arrowline0">
+            <path fill="#ef4236" stroke="#ef4236" stroke-width="1" d="M 0 5 H 10 A 15 15 0 0 1 25 20 V 335 A 15 15 0 0 1 10 350 H -70 A 20 20 0 0 0 -90 370 V 670 H -95 L -87.5 680 -81 670 H -85 V 370 A 15 15 0 0 1 -70 355 H 10 A 20 20 0 0 0 30 335 V 20 A 20 20 0 0 0 10 0 H 0"></path>
+        </g>
+    </defs>
 
 
 
+    <use xlink:href="#arrowline1" x="577.5" y="60"></use>
+    <use xlink:href="#circle_blue" x="695" y="220"></use>
+
+    <use xlink:href="#arrowline2" x="403.5" y="60"></use>
+    <use xlink:href="#circle_blue" x="285" y="220"></use>
+
+    <use xlink:href="#arrowline3" x="577.5" y="360"></use>
+    <use xlink:href="#circle_green" x="656.5" y="360"></use>
+
+    <use xlink:href="#arrowline4" x="403.5" y="360"></use>
+    <use xlink:href="#circle_green" x="325" y="360"></use>
+
+    <use xlink:href="#arrowline0" x="577.5" y="80"></use>
 
 </svg>
