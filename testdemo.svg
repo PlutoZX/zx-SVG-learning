@@ -1,0 +1,64 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="960"
+
+>
+
+    <defs>
+        <g id="rect_box">
+            <rect width="145" height="50" x="0" y="0" fill="#f8f8f8" stroke="#e5e5e5" stroke-width="2"></rect>
+            <text x="50" y="20" style="font-size: 12px">创建订单</text>
+            <text x="50" y="40" style="font-size: 20px;font-weight: 600">40000</text>
+        </g>
+    </defs>
+
+    <defs>
+        <g id="circle_blue">
+            <circle cx="0" cy="0" r="30" fill="#67b2d3"></circle>
+            <text x="-20" y="-25">免登陆</text>
+            <text x="-20" y="0">跳转量</text>
+            <text x="-20" y="25">120</text>
+        </g>
+    </defs>
+
+    <defs>
+        <g id="arrow_big">
+            <rect width="30" height="20" x="10" fill="#77ba55"></rect>
+            <polygon
+                points="
+                    0 20
+                    50 20
+                    25 35
+                "
+                fill="#77ba55"
+            ></polygon>
+            <text x="15" y="20" style="font-size: 12px; color: #fff;">81%</text>
+        </g>
+    </defs>
+
+    <use xlink:href="#rect_box" x="480" y="0"></use>
+
+    <use xlink:href="#circle_blue" x="300" y="90"></use>
+
+    <use xlink:href="#arrow_big"></use>
+
+
+    <!--试试组合分组-->
+    <defs>
+        <g id="big_group1">
+            <use xlink:href="#rect_box" x="0" y="0"></use>
+            <use xlink:href="#arrow_big" x="52.5" y="55"></use>
+            <use xlink:href="#rect_box" x="0" y="95"></use>
+            <use xlink:href="#arrow_big" x="52.5" y="150"></use>
+            <use xlink:href="#rect_box" x="0" y="190"></use>
+            <use xlink:href="#arrow_big" x="52.5" y="245"></use>
+            <use xlink:href="#rect_box" x="0" y="285"></use>
+        </g>
+    </defs>
+    <use xlink:href="#big_group1" x="480" y="300"></use>
+
+
+
+
+</svg>
