@@ -2,7 +2,7 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     width="960"
-    height="1500"
+    height="1000"
     style="margin: 0 auto;"
 >
 
@@ -10,8 +10,8 @@
     <defs>
         <g id="rect_box">
             <rect width="145" height="50" x="0" y="0" fill="#f8f8f8" stroke="#e5e5e5" stroke-width="2"></rect>
-            <text x="50" y="20" style="font-size: 12px">创建订单</text>
-            <text x="50" y="40" style="font-size: 20px;font-weight: 600">40000</text>
+            <text x="72.5" y="20" text-anchor="middle" style="font-size: 12px">创建订单</text>
+            <text x="72.5" y="40" text-anchor="middle" style="font-size: 20px;font-weight: 600">40000</text>
         </g>
     </defs>
 
@@ -19,9 +19,9 @@
     <defs>
         <g id="circle_blue">
             <circle cx="0" cy="0" r="30" fill="#67b2d3"></circle>
-            <text x="-20" y="-15" style="font-size: 12px;" fill="#fff">免登陆</text>
-            <text x="-20" y="0" style="font-size: 12px" fill="#fff">跳转量</text>
-            <text x="-20" y="15" style="font-size: 12px" fill="#fff">120</text>
+            <text x="0" y="-15" text-anchor="middle" fill="#fff" style="font-size: 10px;" >免登陆</text>
+            <text x="0" y="0" text-anchor="middle" fill="#fff" style="font-size: 10px">跳转量</text>
+            <text x="0" y="15" text-anchor="middle" fill="#fff" style="font-size: 10px">120</text>
         </g>
     </defs>
 
@@ -29,9 +29,9 @@
     <defs>
         <g id="circle_green">
             <circle cx="0" cy="0" r="30" fill="#77ba55"></circle>
-            <text x="-20" y="-15" style="font-size: 10px;" fill="#fff">80%</text>
-            <text x="-30" y="0" style="font-size: 10px" fill="#fff">(6400-120)</text>
-            <text x="-20" y="15" style="font-size: 10px" fill="#fff">/8000</text>
+            <text x="0" y="-15" text-anchor="middle" fill="#fff" style="font-size: 10px;">80%</text>
+            <text x="0" y="0" text-anchor="middle" fill="#fff" style="font-size: 10px">(6400-120)</text>
+            <text x="0" y="15" text-anchor="middle" fill="#fff" style="font-size: 10px">/8000</text>
         </g>
     </defs>
 
@@ -47,7 +47,7 @@
                 "
                 fill="#77ba55"
             ></polygon>
-            <text x="15" y="20" style="font-size: 12px;" fill="#fff">81%</text>
+            <text x="25" y="20" text-anchor="middle" fill="#fff" style="font-size: 12px;">81%</text>
         </g>
     </defs>
 

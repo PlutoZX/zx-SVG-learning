@@ -76,6 +76,9 @@
     <!--试试path-->
     <path fill="none" stroke="black" stroke-width="3" d="M 600 100 L 800 500 H 600 V 700"></path>
     <path fill="none" stroke="black" stroke-width="3" d="M 600 100 A 100 100 0 0 1 700 200"></path><!--A命令属性的顺序是长轴、短轴、椭圆旋转角度、laf（优劣弧）、sf（扫描方向）、终点位置-->
+
+    <!--试试text-->
+    <text x="800" y="100" dx="20 20 20 20 20 20 20" dy="20 20 20 20 -20 -20 -20">ABCDEFG</text>
 </svg>
 
 
