@@ -37,7 +37,6 @@
             <text x="0" y="15" text-anchor="middle" fill="#fff" style="font-size: 10px">120</text>
         </g>
     </defs>
-
     <!--定义绿色圆-->
     <defs>
         <g id="circle_green">
@@ -45,6 +44,15 @@
             <text x="0" y="-15" text-anchor="middle" fill="#fff" style="font-size: 10px;">80%</text>
             <text x="0" y="0" text-anchor="middle" fill="#fff" style="font-size: 10px">(6400-120)</text>
             <text x="0" y="15" text-anchor="middle" fill="#fff" style="font-size: 10px">/8000</text>
+        </g>
+    </defs>
+    <!--定义红色圆-->
+    <defs>
+        <g id="circle_red">
+            <circle cx="0" cy="0" r="30" fill="#ef4236"></circle>
+            <text x="0" y="-15" text-anchor="middle" fill="#fff" style="font-size: 10px;">订单</text>
+            <text x="0" y="0" text-anchor="middle" fill="#fff" style="font-size: 10px">转化率</text>
+            <text x="0" y="15" text-anchor="middle" fill="#fff" style="font-size: 10px">30%</text>
         </g>
     </defs>
 
@@ -64,11 +72,87 @@
             <text x="25" y="20" text-anchor="middle" fill="#fff" transform="rotate(-90 24.32 18.25) translate(3 3)" style="font-size: 12px;">81%</text>
         </g>
     </defs>
+    <!--定义绿色大箭头_右-->
+    <defs>
+        <g id="arrow_big3" transform="rotate(-90 25 17.5)">
+            <rect width="30" height="20" x="10" fill="#77ba55"></rect>
+            <polygon points="0 20 50 20 25 35" fill="#77ba55"></polygon>
+            <text x="25" y="20" text-anchor="middle" fill="#fff" transform="rotate(90 24.32 18.25) translate(-2 1)" style="font-size: 12px;">81%</text>
+        </g>
+    </defs>
+    <!--定义绿色大箭头_左下-->
+    <defs>
+        <g id="arrow_big4" transform="rotate(30 25 17.5)">
+            <rect width="30" height="20" x="10" fill="#77ba55"></rect>
+            <polygon points="0 20 50 20 25 35" fill="#77ba55"></polygon>
+            <text x="25" y="20" text-anchor="middle" fill="#fff" transform="rotate(-30 24.32 18.25) translate(2 0)" style="font-size: 12px;">81%</text>
+        </g>
+    </defs>
+    <!--定义绿色大箭头_右下-->
+    <defs>
+        <g id="arrow_big5" transform="rotate(-30 25 17.5)">
+            <rect width="30" height="20" x="10" fill="#77ba55"></rect>
+            <polygon points="0 20 50 20 25 35" fill="#77ba55"></polygon>
+            <text x="25" y="20" text-anchor="middle" fill="#fff" transform="rotate(30 24.32 18.25) translate(0 0)" style="font-size: 12px;">81%</text>
+        </g>
+    </defs>
 
+    <!--定义蓝色箭头线1-->
+    <defs>
+        <g id="blueline1">
+            <path fill="#67b2d3" stroke="#67b2d3" stroke-width="1" d="M 0 5 H 100 A 15 15 0 0 1 115 15 V 375 H 110 L 117.5 385 125 375 H 120 V 15 A 20 20 0 0 0 100 0 H 0"></path>
+        </g>
+    </defs>
+    <!--定义蓝色箭头线2-->
+    <defs>
+        <g id="blueline2">
+            <path fill="#67b2d3" stroke="#67b2d3" stroke-width="1" d="M 0 5 H -100 A 15 15 0 0 0 -115 15 V 375 H -110 L -117.5 385 -125 375 H -120 V 15 A 20 20 0 0 1 -100 0 H 0"></path>
+        </g>
+    </defs>
+    <!--定义绿色箭头线1-->
+    <defs>
+        <g id="greenline1">
+            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 5 H 65 A 15 15 0 0 1 80 20 V 80 H 75 L 82.5 90 89.5 80 H 85 V 20 A 20 20 0 0 0 65 0 H 0"></path>
+        </g>
+    </defs>
+    <!--定义绿色箭头线2-->
+    <defs>
+        <g id="greenline2">
+            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 5 H -65 A 15 15 0 0 0 -80 20 V 80 H -75 L -82.5 90 -89.5 80 H -85 V 20 A 20 20 0 0 1 -65 0 H 0"></path>
+        </g>
+    </defs>
+    <!--定义绿色箭头线3-->
+    <defs>
+        <g id="greenline3">
+            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 0 V 40 A 15 15 0 0 1 -15 55 H -415 V 50 L -420 57.5 -415 65 V 60 H -15 A 20 20 0 0 0 5 40 V 0"></path>
+        </g>
+    </defs>
+    <!--定义绿色箭头线4-->
+    <defs>
+        <g id="greenline4">
+            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 0 V 40 A 20 20 0 0 0 20 60 H 110 V 65 L 115 57.5 110 50 V 55 H 20 A 15 15 0 0 1 5 40 V 0"></path>
+        </g>
+    </defs>
+    <!--定义绿色无箭头线5-->
+    <defs>
+        <g id="greenline5">
+            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 0 V 140 A 20 20 0 0 0 20 160 H 180 V 155 H 20 A 15 15 0 0 1 5 140 V 0"></path>
+        </g>
+    </defs>
+    <!--定义绿色无箭头线6-->
+    <defs>
+        <g id="greenline6">
+            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 0 V 40 A 20 20 0 0 0 20 60 H 180 V 55 H 20 A 15 15 0 0 1 5 40 V 0"></path>
+        </g>
+    </defs>
+    <!--定义红色箭头线-->
+    <defs>
+        <g id="redline1">
+            <path fill="#ef4236" stroke="#ef4236" stroke-width="1" d="M 0 5 H 10 A 15 15 0 0 1 25 20 V 335 A 15 15 0 0 1 10 350 H -70 A 20 20 0 0 0 -90 370 V 670 H -95 L -87.5 680 -81 670 H -85 V 370 A 15 15 0 0 1 -70 355 H 10 A 20 20 0 0 0 30 335 V 20 A 20 20 0 0 0 10 0 H 0"></path>
+        </g>
+    </defs>
 
-
-
-    <!--组合分组-->
+    <!--定义组合分组-->
     <defs>
         <g id="big_group1">
             <use xlink:href="#rect_box" x="0" y="0"></use>
@@ -81,60 +165,67 @@
         </g>
     </defs>
 
-    <!--蓝色箭头线1-->
-    <defs>
-        <g id="arrowline1">
-            <path fill="#67b2d3" stroke="#67b2d3" stroke-width="1" d="M 0 5 H 100 A 15 15 0 0 1 115 15 V 375 H 110 L 117.5 385 125 375 H 120 V 15 A 20 20 0 0 0 100 0 H 0"></path>
-        </g>
-    </defs>
-    <!--蓝色箭头线2-->
-    <defs>
-        <g id="arrowline2">
-            <path fill="#67b2d3" stroke="#67b2d3" stroke-width="1" d="M 0 5 H -100 A 15 15 0 0 0 -115 15 V 375 H -110 L -117.5 385 -125 375 H -120 V 15 A 20 20 0 0 1 -100 0 H 0"></path>
-        </g>
-    </defs>
-    <!--绿色箭头线1-->
-    <defs>
-        <g id="arrowline3">
-            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 5 H 65 A 15 15 0 0 1 80 20 V 80 H 75 L 82.5 90 89.5 80 H 85 V 20 A 20 20 0 0 0 65 0 H 0"></path>
-        </g>
-    </defs>
-    <!--绿色箭头线2-->
-    <defs>
-        <g id="arrowline4">
-            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 5 H -65 A 15 15 0 0 0 -80 20 V 80 H -75 L -82.5 90 -89.5 80 H -85 V 20 A 20 20 0 0 1 -65 0 H 0"></path>
-        </g>
-    </defs>
-    <!--红色箭头线-->
-    <defs>
-        <g id="arrowline0">
-            <path fill="#ef4236" stroke="#ef4236" stroke-width="1" d="M 0 5 H 10 A 15 15 0 0 1 25 20 V 335 A 15 15 0 0 1 10 350 H -70 A 20 20 0 0 0 -90 370 V 670 H -95 L -87.5 680 -81 670 H -85 V 370 A 15 15 0 0 1 -70 355 H 10 A 20 20 0 0 0 30 335 V 20 A 20 20 0 0 0 10 0 H 0"></path>
-        </g>
-    </defs>
 
-
-
+    <!--绘图-->
     <use xlink:href="#big_group1" x="577.5" y="50"></use>
 
-    <use xlink:href="#arrowline1" x="737.5" y="60"></use>
+    <use xlink:href="#blueline1" x="737.5" y="60"></use>
     <use xlink:href="#circle_blue" x="855" y="220"></use>
 
-    <use xlink:href="#arrowline2" x="563.5" y="60"></use>
+    <use xlink:href="#blueline2" x="563.5" y="60"></use>
     <use xlink:href="#circle_blue" x="445" y="220"></use>
 
-    <use xlink:href="#arrowline3" x="735.5" y="355"></use>
+    <use xlink:href="#greenline1" x="735.5" y="355"></use>
     <use xlink:href="#circle_green" x="816.5" y="360"></use>
 
-    <use xlink:href="#arrowline4" x="563.5" y="355"></use>
+    <use xlink:href="#greenline2" x="563.5" y="355"></use>
     <use xlink:href="#circle_green" x="485" y="360"></use>
 
-    <use xlink:href="#arrowline0" x="737.5" y="80"></use>
+    <use xlink:href="#redline1" x="737.5" y="80"></use>
+    <use xlink:href="#circle_red" x="650" y="630"></use>
 
     <use xlink:href="#rect_box" x="400" y="455"></use>
 
     <use xlink:href="#arrow_big2" x="0" y="0" transform="translate(350 463)"></use>
 
-    <use xlink:href="#rect_box" x="400" y="455"></use>
+    <use xlink:href="#rect_box" x="208" y="455"></use>
+
+    <!--左中-->
+    <use xlink:href="#arrow_big1" x="255" y="520" ></use>
+    <use xlink:href="#rect_box" x="208" y="570"></use>
+    <use xlink:href="#greenline5" x="280" y="630"></use>
+
+    <!--左左下-->
+    <use xlink:href="#arrow_big4" x="0" y="0" transform="translate(160 520)"></use>
+    <use xlink:href="#rect_box" x="50" y="570"></use>
+    <use xlink:href="#arrow_big1" x="100" y="625" ></use>
+    <use xlink:href="#rect_box" x="50" y="665"></use>
+    <use xlink:href="#greenline6" x="120" y="730" ></use>
+
+    <!--左右下-->
+    <use xlink:href="#arrow_big5" x="0" y="0" transform="translate(350 520)"></use>
+    <use xlink:href="#rect_box" x="365" y="570"></use>
+    <use xlink:href="#arrow_big1" x="415" y="625" ></use>
+    <use xlink:href="#rect_box" x="365" y="665"></use>
+    <use xlink:href="#greenline4" x="435" y="730" ></use>
+
+    <!--右-->
+    <use xlink:href="#rect_box" x="750" y="455"></use>
+    <use xlink:href="#arrow_big3" x="0" y="0" transform="translate(895 463)"></use>
+
+    <use xlink:href="#rect_box" x="942" y="455"></use>
+    <use xlink:href="#arrow_big3" x="0" y="0" transform="translate(1086 463)"></use>
+
+    <use xlink:href="#rect_box" x="1132" y="455"></use>
+    <use xlink:href="#arrow_big1" x="1180" y="520" ></use>
+    <use xlink:href="#rect_box" x="1132" y="570"></use>
+    <use xlink:href="#arrow_big1" x="1180" y="625" ></use>
+    <use xlink:href="#rect_box" x="1132" y="665"></use>
+
+    <use xlink:href="#greenline3" x="1200" y="730" ></use>
+
+    <!--中-->
+    <use xlink:href="#rect_box" x="577.5" y="770"></use>
 
 </svg>
 
