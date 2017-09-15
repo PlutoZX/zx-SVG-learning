@@ -1,16 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
 <svg
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    width="960"
-    height="1000"
-    style="margin: 0 auto;"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="1280"
+        height="1280"
+        style="
+            display: block;
+            margin: 0 auto;"
 >
 
     <!--定义矩形块-->
     <defs>
         <g id="rect_box">
             <rect width="145" height="50" x="0" y="0" fill="#f8f8f8" stroke="#e5e5e5" stroke-width="2"></rect>
-            <text x="72.5" y="20" text-anchor="middle" style="font-size: 12px">创建订单</text>
+            <text x="72.5" y="17" text-anchor="middle" style="font-size: 10px">创建订单</text>
             <text x="72.5" y="40" text-anchor="middle" style="font-size: 20px;font-weight: 600">40000</text>
         </g>
     </defs>
@@ -35,21 +48,23 @@
         </g>
     </defs>
 
-    <!--定义绿色大箭头-->
+    <!--定义绿色大箭头_下-->
     <defs>
-        <g id="arrow_big">
+        <g id="arrow_big1">
             <rect width="30" height="20" x="10" fill="#77ba55"></rect>
-            <polygon
-                points="
-                    0 20
-                    50 20
-                    25 35
-                "
-                fill="#77ba55"
-            ></polygon>
+            <polygon points="0 20 50 20 25 35" fill="#77ba55"></polygon>
             <text x="25" y="20" text-anchor="middle" fill="#fff" style="font-size: 12px;">81%</text>
         </g>
     </defs>
+    <!--定义绿色大箭头_左-->
+    <defs>
+        <g id="arrow_big2" transform="rotate(90 25 17.5)">
+            <rect width="30" height="20" x="10" fill="#77ba55"></rect>
+            <polygon points="0 20 50 20 25 35" fill="#77ba55"></polygon>
+            <text x="25" y="20" text-anchor="middle" fill="#fff" transform="rotate(-90 24.32 18.25) translate(3 3)" style="font-size: 12px;">81%</text>
+        </g>
+    </defs>
+
 
 
 
@@ -57,15 +72,14 @@
     <defs>
         <g id="big_group1">
             <use xlink:href="#rect_box" x="0" y="0"></use>
-            <use xlink:href="#arrow_big" x="52.5" y="55"></use>
+            <use xlink:href="#arrow_big1" x="52.5" y="55"></use>
             <use xlink:href="#rect_box" x="0" y="95"></use>
-            <use xlink:href="#arrow_big" x="52.5" y="150"></use>
+            <use xlink:href="#arrow_big1" x="52.5" y="150"></use>
             <use xlink:href="#rect_box" x="0" y="190"></use>
-            <use xlink:href="#arrow_big" x="52.5" y="245"></use>
+            <use xlink:href="#arrow_big1" x="52.5" y="245"></use>
             <use xlink:href="#rect_box" x="0" y="285"></use>
         </g>
     </defs>
-    <use xlink:href="#big_group1" x="417.5" y="50"></use>
 
     <!--蓝色箭头线1-->
     <defs>
@@ -100,18 +114,34 @@
 
 
 
-    <use xlink:href="#arrowline1" x="577.5" y="60"></use>
-    <use xlink:href="#circle_blue" x="695" y="220"></use>
+    <use xlink:href="#big_group1" x="577.5" y="50"></use>
 
-    <use xlink:href="#arrowline2" x="403.5" y="60"></use>
-    <use xlink:href="#circle_blue" x="285" y="220"></use>
+    <use xlink:href="#arrowline1" x="737.5" y="60"></use>
+    <use xlink:href="#circle_blue" x="855" y="220"></use>
 
-    <use xlink:href="#arrowline3" x="577.5" y="360"></use>
-    <use xlink:href="#circle_green" x="656.5" y="360"></use>
+    <use xlink:href="#arrowline2" x="563.5" y="60"></use>
+    <use xlink:href="#circle_blue" x="445" y="220"></use>
 
-    <use xlink:href="#arrowline4" x="403.5" y="360"></use>
-    <use xlink:href="#circle_green" x="325" y="360"></use>
+    <use xlink:href="#arrowline3" x="735.5" y="355"></use>
+    <use xlink:href="#circle_green" x="816.5" y="360"></use>
 
-    <use xlink:href="#arrowline0" x="577.5" y="80"></use>
+    <use xlink:href="#arrowline4" x="563.5" y="355"></use>
+    <use xlink:href="#circle_green" x="485" y="360"></use>
+
+    <use xlink:href="#arrowline0" x="737.5" y="80"></use>
+
+    <use xlink:href="#rect_box" x="400" y="455"></use>
+
+    <use xlink:href="#arrow_big2" x="0" y="0" transform="translate(350 463)"></use>
+
+    <use xlink:href="#rect_box" x="400" y="455"></use>
 
 </svg>
+
+
+<script>
+
+</script>
+
+</body>
+</html>
