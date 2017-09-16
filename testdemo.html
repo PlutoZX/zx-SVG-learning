@@ -6,8 +6,112 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/pikaday.css" />
+    <link rel="stylesheet" href="./css/site.css" />
+    <script src="https://at.alicdn.com/t/font_418465_5heb0clj4509t3xr.js"></script>
+    <style type="text/css">
+        h1 {
+            display: inline-block;
+            margin: 0 105px 0 0;
+            font-size: 20px;
+            line-height: 20px;
+            color: #161616;
+        }
+        label {
+            font-size: 12px;
+            color: #9e9e9e;
+            margin-right: 15px;
+        }
+        label.label2 {
+            margin-left: 40px;
+        }
+        label.label3 {
+            margin-left: 20px;
+        }
+        select {
+            width: 160px;
+            height: 30px;
+            outline: none;
+            background-color: #fff;
+            border: 1px solid #e8e8e8;
+        }
+        input.startDatePicker, input.endDatePicker {
+            box-sizing: border-box;
+            width: 110px;
+            height: 30px;
+            margin: 0;
+            padding: 0 0 0 10px;
+            outline: none;
+            background-color: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 5px;
+        }
+        .iconfont {
+            margin: 0 0 0 -30px;
+            width: 1em; height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+        .textsvg {
+            margin: 0 0 0 20px;
+            display: inline-block;
+            width: 100px;
+            height: 10px;
+        }
+        .queryButton {
+            display: inline-block;
+            width: 115px;
+            height: 30px;
+            margin: 0 0 0 15px;
+            background-color: #e22319;
+            font-size: 15px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+        }
+        .queryButton:hover {
+            background-color: #E26057;
+            cursor: pointer;
+        }
+
+    </style>
 </head>
 <body>
+<h1>用户行为转化率分析H5</h1>
+
+<label for="">商户号</label>
+<select name="" id="">
+    <option value="" selected>全部</option>
+    <option value="">啦啦啦</option>
+    <option value="">哈哈哈</option>
+    <option value="">哈哈哈</option>
+    <option value="">哈哈哈</option>
+    <option value="">哈哈哈</option>
+    <option value="">哈哈哈</option>
+    <option value="">哈哈哈</option>
+    <option value="">哈哈哈</option>
+    <option value="">哈哈哈</option>
+    <option value="">哈哈哈</option>
+</select>
+
+<label for="startDatePicker" class="label2">日期</label>
+<input type="text" id="startDatePicker" class="startDatePicker">
+<svg class="iconfont" aria-hidden="true">
+    <use xlink:href="#icon-date" id="use_icondate"></use>
+</svg>
+<label for="endDatePicker" class="label3">至</label>
+<input type="text" id="endDatePicker" class="endDatePicker">
+<svg class="iconfont" aria-hidden="true">
+    <use xlink:href="#icon-date" id="use_icondate"></use>
+</svg>
+
+
+
+<svg class="textsvg"><text x="0" y="9" fill="#54abf6" style="font-size: 10px">统计截止到昨日24点</text></svg>
+
+<div class="queryButton">查询</div>
 
 <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -230,16 +334,153 @@
 </svg>
 
 
+<script src="./js/moment.min.js"></script>
+<script src="./js/pikaday.js"></script>
 <script>
+    // 需要查询的日期数据对象
+    var queryDateObj = {
+        startDate: '',
+        endDate: ''
+    };
+    var updateStartDate = function(){
+        startDatePicker.setStartRange(queryDateObj.startDate);
+        endDatePicker.setStartRange(queryDateObj.startDate);
+        endDatePicker.setMinDate(queryDateObj.startDate);
+    };
+    var updateEndDate = function() {
+        startDatePicker.setEndRange(queryDateObj.endDate);
+        startDatePicker.setMaxDate(queryDateObj.endDate);
+        endDatePicker.setEndRange(queryDateObj.endDate);
+    };
+
+    // 日期选择器
+    var startDatePicker = new Pikaday({
+        field: document.getElementById('startDatePicker'),
+        format: 'YYYY-MM-DD',
+        position: 'top',
+        firstDay: 1,
+        numberOfMonths: 1,
+        i18n: {
+            previousMonth : '上个月',
+            nextMonth     : '下个月',
+            months        : ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+            weekdays      : ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+            weekdaysShort : ['周日','周一','周二','周三','周四','周五','周六']
+        },
+        onSelect: function(){
+            queryDateObj.startDate = this.getDate();
+            updateStartDate();
+            console.log(queryDateObj);
+        }
+    });
+    var endDatePicker = new Pikaday({
+        field: document.getElementById('endDatePicker'),
+        format: 'YYYY-MM-DD',
+        position: 'top',
+        firstDay: 1,
+        numberOfMonths: 1,
+        i18n: {
+            previousMonth : '上个月',
+            nextMonth     : '下个月',
+            months        : ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+            weekdays      : ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+            weekdaysShort : ['周日','周一','周二','周三','周四','周五','周六']
+        },
+        onSelect: function(){
+            queryDateObj.endDate = this.getDate();
+            updateEndDate();
+            console.log(queryDateObj);
+        }
+    });
+
+
+    var _startDate = startDatePicker.getDate();
+    var _endDate = endDatePicker.getDate();
+
+    if (_startDate) {
+        queryDateObj.startDate = _startDate;
+        updateStartDate();
+    }
+
+    if (_endDate) {
+        queryDateObj.endDate = _endDate;
+        updateEndDate();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    var DATAOBJ = {
+        createOrder: {
+            txt1: '创建订单',
+            txt2: '40000'
+        }
+    };
+
     var SVG_NS = 'http://www.w3.org/2000/svg';
     var XLINK_NS = 'http://www.w3.org/1999/xlink';
 
-
-    // 生成SVG矩形框的工厂函数
-    function createRectBox(txt1, txt2){
-
+    // 生成defs标签的函数
+    function createDefs(group){
+        var _defs = document.createElementNS(SVG_NS, 'defs');
+        _defs.appendChild(group);
+        return _defs;
     }
-</script>
 
+    // 生成use标签的函数
+    function createUse(xid, x, y, transf){
+        var _use = document.createElementNS(SVG_NS, 'use');
+        _use.setAttributeNS(XLINK_NS, 'xlink:href', '#'+xid); // 注意这里是setAttributeNS
+        _use.setAttribute('x', x);
+        _use.setAttribute('y', y);
+        _use.setAttribute('transform', transf);
+
+        return _use;
+    }
+
+    // 生成SVG矩形框的函数
+    function createRectBox(gid, txt1, txt2){
+        var _g = document.createElementNS(SVG_NS, 'g');
+        _g.setAttribute('id', gid);
+        var _rect = document.createElementNS(SVG_NS, 'rect');
+        _rect.setAttribute('width', '145');
+        _rect.setAttribute('height', '50');
+        _rect.setAttribute('x', '0');
+        _rect.setAttribute('y', '0');
+        _rect.setAttribute('fill', '#f8f8f8');
+        _rect.setAttribute('stroke', '#e5e5e5');
+        _rect.setAttribute('stroke-width', '2');
+        var _text1 = document.createElementNS(SVG_NS, 'text');
+        _text1.setAttribute('x', '72.5');
+        _text1.setAttribute('y', '17');
+        _text1.setAttribute('text-anchor', 'middle');
+        _text1.setAttribute('style', 'font-size: 10px');
+        _text1.textContent = txt1;
+        var _text2 = document.createElementNS(SVG_NS, 'text');
+        _text2.setAttribute('x', '72.5');
+        _text2.setAttribute('y', '40');
+        _text2.setAttribute('text-anchor', 'middle');
+        _text2.setAttribute('style', 'font-size: 20px;font-weight: 600');
+        _text2.textContent = txt2;
+
+        _g.appendChild(_rect);
+        _g.appendChild(_text1);
+        _g.appendChild(_text2);
+
+        return _g;
+    }
+
+
+//    document.querySelector('svg').appendChild(createDefs(createRectBox('createOrder', DATAOBJ.createOrder.txt1, DATAOBJ.createOrder.txt2)));
+//    document.querySelector('svg').appendChild(createUse('createOrder', 0, 0, 'translate(577.5,0)'));
+</script>
 </body>
 </html>
