@@ -81,19 +81,19 @@
 <body>
 <h1>用户行为转化率分析H5</h1>
 
-<label for="">商户号</label>
-<select name="" id="">
-    <option value="" selected>全部</option>
-    <option value="">啦啦啦</option>
-    <option value="">哈哈哈</option>
-    <option value="">哈哈哈</option>
-    <option value="">哈哈哈</option>
-    <option value="">哈哈哈</option>
-    <option value="">哈哈哈</option>
-    <option value="">哈哈哈</option>
-    <option value="">哈哈哈</option>
-    <option value="">哈哈哈</option>
-    <option value="">哈哈哈</option>
+<label for="queryMerchant">商户号</label>
+<select name="" id="queryMerchant">
+    <option value="0123" selected>全部</option>
+    <option value="1123">啦啦啦</option>
+    <option value="2123">哈哈哈</option>
+    <option value="3123">哈哈哈</option>
+    <option value="4123">哈哈哈</option>
+    <option value="5123">哈哈哈</option>
+    <option value="6123">哈哈哈</option>
+    <option value="7123">哈哈哈</option>
+    <option value="8123">哈哈哈</option>
+    <option value="9123">哈哈哈</option>
+    <option value="10132r">哈哈哈</option>
 </select>
 
 <label for="startDatePicker" class="label2">日期</label>
@@ -110,7 +110,7 @@
 
 <svg class="textsvg"><text x="0" y="9" fill="#54abf6" style="font-size: 10px">统计截止到昨日24点</text></svg>
 
-<div class="queryButton">查询</div>
+<div id="queryButton" class="queryButton">查询</div>
 
 <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -556,21 +556,28 @@
 <script src="./js/moment.min.js"></script>
 <script src="./js/pikaday.js"></script>
 <script>
-    // 需要查询的日期数据对象
+    // 保存选择的商户号
+    var queryMerchant = 0;
+    document.querySelector('#queryMerchant').addEventListener('change', function(e){
+        queryMerchant = this.options[this.selectedIndex].value;
+        //console.log(queryMerchant);
+    });
+
+    // 保存查询的日期数据对象
     var queryDateObj = {
         startDate: '',
         endDate: ''
     };
-    var updateStartDate = function(){ // 更新起始日期选择范围
+    function updateStartDate(){ // 更新起始日期选择范围
         startDatePicker.setStartRange(queryDateObj.startDate);
         endDatePicker.setStartRange(queryDateObj.startDate);
         endDatePicker.setMinDate(queryDateObj.startDate);
-    };
-    var updateEndDate = function() { // 更新结束日期选择范围
+    }
+    function updateEndDate() { // 更新结束日期选择范围
         startDatePicker.setEndRange(queryDateObj.endDate);
         startDatePicker.setMaxDate(queryDateObj.endDate);
         endDatePicker.setEndRange(queryDateObj.endDate);
-    };
+    }
 
     // 日期选择器
     var startDatePicker = new Pikaday({
@@ -588,7 +595,7 @@
         onSelect: function(){ // 选择起始日期后的回调
             queryDateObj.startDate = this.getDate(); // 存入选择的日期对象，可以处理为需要的字符串
             updateStartDate();
-            console.log(queryDateObj);
+            //console.log(queryDateObj);
         }
     });
     var endDatePicker = new Pikaday({
@@ -606,12 +613,12 @@
         onSelect: function(){ // 选择结束日期后的回调
             queryDateObj.endDate = this.getDate(); // 存入选择的日期对象，可以处理为需要的字符串
             updateEndDate();
-            console.log(queryDateObj);
+            //console.log(queryDateObj);
         }
     });
 
     // 画图数据对象
-    var DATAOBJ = {
+    var DATAOBJ = { // 写了一些默认值，可以清空
         createOrder: {
             txt1: '创建订单',
             txt2: '40000'
@@ -759,14 +766,23 @@
             }
             if(dataObj[k].txt3){
                 document.querySelectorAll('#' + k + ' text')[2].textContent = dataObj[k].txt3;
-
             }
         }
     }
-    renderRectData(DATAOBJ);
 
 
+    // 点击查询发送请求获取数据处理后填入画图数据对象
+    document.querySelector("#queryButton").addEventListener('click', function(){
+       if(!queryDateObj.startDate || !queryDateObj.endDate){
+           alert('请选择日期区间');
+           return;
+       }
 
+       // ajax传入商户号和查询的日期区间，获得数据后处理，填入画图数据对象，调用渲染
+       //ajax(queryDateObj.startDate, queryDateObj.endDate)
+        alert('提交成功');
+        renderRectData(DATAOBJ);//调用渲染
+    });
 
 
 </script>
