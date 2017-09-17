@@ -39,5 +39,66 @@
     白色：#f8f8f8
     灰色：#e5e5e5
 </p>
+
+
+<script>
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+    var XLINK_NS = 'http://www.w3.org/1999/xlink';
+
+    // 生成defs标签的函数
+    function createDefs(group){
+        var _defs = document.createElementNS(SVG_NS, 'defs');
+        _defs.appendChild(group);
+        return _defs;
+    }
+
+    // 生成use标签的函数
+    function createUse(xid, x, y, transf){
+        var _use = document.createElementNS(SVG_NS, 'use');
+        _use.setAttributeNS(XLINK_NS, 'xlink:href', '#'+xid); // 注意这里是setAttributeNS
+        _use.setAttribute('x', x);
+        _use.setAttribute('y', y);
+        _use.setAttribute('transform', transf);
+
+        return _use;
+    }
+
+    // 生成SVG矩形框的函数
+    function createRectBox(gid, txt1, txt2){
+        var _g = document.createElementNS(SVG_NS, 'g');
+        _g.setAttribute('id', gid);
+        var _rect = document.createElementNS(SVG_NS, 'rect');
+        _rect.setAttribute('width', '145');
+        _rect.setAttribute('height', '50');
+        _rect.setAttribute('x', '0');
+        _rect.setAttribute('y', '0');
+        _rect.setAttribute('fill', '#f8f8f8');
+        _rect.setAttribute('stroke', '#e5e5e5');
+        _rect.setAttribute('stroke-width', '2');
+        var _text1 = document.createElementNS(SVG_NS, 'text');
+        _text1.setAttribute('x', '72.5');
+        _text1.setAttribute('y', '17');
+        _text1.setAttribute('text-anchor', 'middle');
+        _text1.setAttribute('style', 'font-size: 10px');
+        _text1.textContent = txt1;
+        var _text2 = document.createElementNS(SVG_NS, 'text');
+        _text2.setAttribute('x', '72.5');
+        _text2.setAttribute('y', '40');
+        _text2.setAttribute('text-anchor', 'middle');
+        _text2.setAttribute('style', 'font-size: 20px;font-weight: 600');
+        _text2.textContent = txt2;
+
+        _g.appendChild(_rect);
+        _g.appendChild(_text1);
+        _g.appendChild(_text2);
+
+        return _g;
+    }
+
+
+    //    document.querySelector('svg').appendChild(createDefs(createRectBox('createOrder', DATAOBJ.createOrder.txt1, DATAOBJ.createOrder.txt2)));
+    //    document.querySelector('svg').appendChild(createUse('createOrder', 0, 0, 'translate(577.5,0)'));
+
+</script>
 </body>
 </html>
