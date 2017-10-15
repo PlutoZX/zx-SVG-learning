@@ -28,12 +28,35 @@
         label.label3 {
             margin-left: 20px;
         }
-        select {
+        .merchantBox {
+            display: inline-block;
+            position: relative;
+        }
+        input.queryMerchant {
             width: 160px;
             height: 30px;
-            outline: none;
+            padding: 0 0 0 10px;
+            margin: 0;
+            /*outline: none;*/
             background-color: #fff;
             border: 1px solid #e8e8e8;
+        }
+        ul.fuzzybox {
+            display: none;
+            position: absolute;
+            top: 35px;
+            left: 0;
+            margin: 0;
+            padding: 0 10px 10px;
+            min-width: 150px;
+            list-style: none;
+            background-color: #f5f2f0;
+            z-index: 5;
+        }
+        ul.fuzzybox li:hover {
+            color: #33aaff;
+            background-color: rgba(255,255,255,0.7);
+            cursor: pointer;
         }
         input.startDatePicker, input.endDatePicker {
             box-sizing: border-box;
@@ -82,19 +105,12 @@
 <h1>用户行为转化率分析H5</h1>
 
 <label for="queryMerchant">商户号</label>
-<select name="" id="queryMerchant">
-    <option value="0123" selected>全部</option>
-    <option value="1123">啦啦啦</option>
-    <option value="2123">哈哈哈</option>
-    <option value="3123">哈哈哈</option>
-    <option value="4123">哈哈哈</option>
-    <option value="5123">哈哈哈</option>
-    <option value="6123">哈哈哈</option>
-    <option value="7123">哈哈哈</option>
-    <option value="8123">哈哈哈</option>
-    <option value="9123">哈哈哈</option>
-    <option value="10132r">哈哈哈</option>
-</select>
+<div class="merchantBox">
+    <input type="text" id="queryMerchant" class="queryMerchant"/>
+    <ul id="fuzzybox" class="fuzzybox">
+    </ul>
+</div>
+
 
 <label for="startDatePicker" class="label2">日期</label>
 <input type="text" id="startDatePicker" class="startDatePicker">
@@ -420,7 +436,7 @@
     <!--定义绿色箭头线3-->
     <defs>
         <g id="greenline3">
-            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 0 V 40 A 15 15 0 0 1 -15 55 H -415 V 50 L -420 57.5 -415 65 V 60 H -15 A 20 20 0 0 0 5 40 V 0"></path>
+            <path fill="#77ba55" stroke="#77ba55" stroke-width="1" d="M 0 0 V 40 A 15 15 0 0 1 -15 55 H -445 V 50 L -450 57.5 -445 65 V 60 H -15 A 20 20 0 0 0 5 40 V 0"></path>
         </g>
     </defs>
     <!--定义绿色箭头线4-->
@@ -558,10 +574,10 @@
 <script>
     // 保存选择的商户号
     var queryMerchant = 0;
-    document.querySelector('#queryMerchant').addEventListener('change', function(e){
-        queryMerchant = this.options[this.selectedIndex].value;
-        //console.log(queryMerchant);
-    });
+//    document.querySelector('#queryMerchant').addEventListener('change', function(e){
+//        queryMerchant = this.options[this.selectedIndex].value;
+//        //console.log(queryMerchant);
+//    });
 
     // 保存查询的日期数据对象
     var queryDateObj = {
@@ -782,6 +798,49 @@
        //ajax(queryDateObj.startDate, queryDateObj.endDate)
         alert('提交成功');
         renderRectData(DATAOBJ);//调用渲染
+    });
+
+    // 模糊查询
+    var arrs = [
+        '1',
+        '12',
+        '123',
+        '1234',
+        '12345',
+        '123456'
+    ];
+    function checkInput(arr, intxt, ul){
+        intxt = intxt.trim();
+        if(!intxt){
+            ul.style.display = 'none';
+            return;
+        }
+        // 筛选含目标字符的值
+        var resultarr = arr.filter(function(v){
+            return v.indexOf(intxt) >= 0;
+        });
+
+        if(resultarr.length > 0) {
+            var lists = '';
+            resultarr.forEach(function(t){
+                lists += '<li class="fuzzyitem">'+ t +'</li>';
+            });
+            ul.innerHTML = lists;
+            ul.style.display = 'block';
+        }else {
+            ul.style.display = 'none';
+        }
+    }
+
+    var input = document.querySelector('.queryMerchant');
+    var ul = document.querySelector('.fuzzybox');
+    input.addEventListener('input', function(){
+        checkInput(arrs, input.value, ul);
+    });
+    ul.addEventListener('click', function(e){
+        input.value = e.target.innerText;
+        ul.innerHTML = '';
+        ul.style.display = 'none';
     });
 
 

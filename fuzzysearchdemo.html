@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            width: 160px;
+            padding: 0;
+            list-style: none;
+        }
+        ul li:hover {
+            color: #33aaff;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" class="inputtxt">
+        <ul class="alternative">
+
+        </ul>
+    </div>
+
+    <script>
+        var arrs = [
+            '1',
+            '12',
+            '123',
+            '1234',
+            '12345',
+            '123456'
+        ];
+
+        function checkInput(arr, intxt, ul){
+            intxt = intxt.trim();
+            if(!intxt){
+                ul.innerHTML = '';
+                return;
+            }
+            var resultarr = arr.filter(function(v){
+                return v.indexOf(intxt) >= 0;
+            });
+            if(resultarr.length > 0) {
+                var lists = '';
+                resultarr.forEach(function(t){
+                    lists += '<li>'+ t +'</li>';
+                });
+                ul.innerHTML = lists;
+            }else {
+                ul.innerHTML = '';
+            }
+        }
+
+        var input = document.querySelector('.inputtxt');
+        var ul = document.querySelector('.alternative');
+        input.addEventListener('input', function(){
+            checkInput(arrs, input.value, ul);
+        })
+    </script>
+</body>
+</html>
