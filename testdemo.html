@@ -31,13 +31,13 @@
         .merchantBox {
             display: inline-block;
             position: relative;
+            min-width: 160px;
         }
         input.queryMerchant {
             width: 160px;
             height: 30px;
             padding: 0 0 0 10px;
             margin: 0;
-            /*outline: none;*/
             background-color: #fff;
             border: 1px solid #e8e8e8;
         }
@@ -48,7 +48,7 @@
             left: 0;
             margin: 0;
             padding: 0 10px 10px;
-            min-width: 150px;
+            width: 700px;
             list-style: none;
             background-color: #f5f2f0;
             z-index: 5;
@@ -572,12 +572,73 @@
 <script src="./js/moment.min.js"></script>
 <script src="./js/pikaday.js"></script>
 <script>
+    var arrs = [
+        {name: '全部', value: '*'},
+        {name: '京东支付测试商户号【22294531】', value: '22294531'},
+        {name: '【22792279】网银在线快捷实物', value: '22792279'},
+        {name: '【22809981】网银在线快捷虚拟', value: '22809981'},
+        {name: '京东商城水电煤【22811089】', value: '22811089'},
+        {name: '【23033240】江苏京东信息技术有限公司', value: '23033240'},
+        {name: '网银钱包信用卡还款【23050417】', value: '23050417'},
+        {name: '京东维修中心【23060777】', value: '23060777'},
+        {name: '北京京汇旅游白条网银平台【23110249】', value: '23110249'},
+        {name: '深圳市一元云购网络科技有限公司【23126091】', value: '23126091'},
+        {name: '京东商城（扫一扫条形码）【23234820】', value: '23234820'},
+        {name: '【23237754】京东配送上门取件', value: '23237754'},
+        {name: '【99900099】个人转账', value: '99900099'},
+        {name: '大连中海环球商品交易中心有限公司【110213777】', value: '110213777'},
+        {name: '来宾市欧丽莎电子商务有限公司【110216790】', value: '110216790'},
+        {name: '广州捷祥信息科技有限公司【110219087】', value: '110219087'},
+        {name: '博尔塔拉蒙古自治州融业中小企业服务有限公司【110209125002】', value: '110209125002'},
+        {name: '京东钱包夺宝吧(奥宁)【110184410002】', value: '110184410002'},
+        {name: '网银在线（北京）商务服务有限公司【110197288001】（9.30咚咚红包）', value: '110197288001'},
+        {name: '江苏京东信息技术有限公司【110194765001】', value: '110194765001'},
+        {name: '基金代销【110200234001】', value: '110200234001'},
+        {name: '江苏一键联信息科技有限公司【110118716009】', value: '110118716009'}
+    ];
     // 保存选择的商户号
     var queryMerchant = 0;
-//    document.querySelector('#queryMerchant').addEventListener('change', function(e){
-//        queryMerchant = this.options[this.selectedIndex].value;
-//        //console.log(queryMerchant);
-//    });
+    // 模糊匹配函数
+    function checkInput(dataArr, inText, ulElement){
+        inText = inText.trim();
+        if(!inText){
+            ulElement.style.display = 'none';
+            return;
+        }
+        // 筛选含目标字符的值
+        var resultarr = dataArr.filter(function(obj){
+            return obj.name.indexOf(inText) >= 0;
+        });
+        // 显示备选
+        if(resultarr.length > 0) {
+            var lists = '';
+            resultarr.forEach(function(obj){
+                lists += '<li class="fuzzyitem" data-value="'+ obj.value +'">'+ obj.name +'</li>';
+            });
+            ulElement.innerHTML = lists;
+            ulElement.style.display = 'block';
+        }else {
+            ulElement.style.display = 'none';
+        }
+    }
+
+    var input = document.querySelector('.queryMerchant');
+    var ul = document.querySelector('.fuzzybox');
+
+    input.addEventListener('input', function(){
+        checkInput(arrs, input.value, ul);
+    });
+    ul.addEventListener('click', function(e){
+        input.value = e.target.innerText;
+        // 将选中的li的value保存在queryMerchant变量
+        queryMerchant = e.target.getAttribute('data-value');
+        ul.innerHTML = '';
+        ul.style.display = 'none';
+    });
+
+
+
+
 
     // 保存查询的日期数据对象
     var queryDateObj = {
@@ -601,6 +662,7 @@
         format: 'YYYY-MM-DD',
         firstDay: 1,
         numberOfMonths: 1,
+        maxDate: new Date(),
         i18n: {
             previousMonth : '上个月',
             nextMonth     : '下个月',
@@ -619,6 +681,7 @@
         format: 'YYYY-MM-DD',
         firstDay: 1,
         numberOfMonths: 1,
+        maxDate: new Date(),
         i18n: {
             previousMonth : '上个月',
             nextMonth     : '下个月',
@@ -798,49 +861,6 @@
        //ajax(queryDateObj.startDate, queryDateObj.endDate)
         alert('提交成功');
         renderRectData(DATAOBJ);//调用渲染
-    });
-
-    // 模糊查询
-    var arrs = [
-        '1',
-        '12',
-        '123',
-        '1234',
-        '12345',
-        '123456'
-    ];
-    function checkInput(arr, intxt, ul){
-        intxt = intxt.trim();
-        if(!intxt){
-            ul.style.display = 'none';
-            return;
-        }
-        // 筛选含目标字符的值
-        var resultarr = arr.filter(function(v){
-            return v.indexOf(intxt) >= 0;
-        });
-
-        if(resultarr.length > 0) {
-            var lists = '';
-            resultarr.forEach(function(t){
-                lists += '<li class="fuzzyitem">'+ t +'</li>';
-            });
-            ul.innerHTML = lists;
-            ul.style.display = 'block';
-        }else {
-            ul.style.display = 'none';
-        }
-    }
-
-    var input = document.querySelector('.queryMerchant');
-    var ul = document.querySelector('.fuzzybox');
-    input.addEventListener('input', function(){
-        checkInput(arrs, input.value, ul);
-    });
-    ul.addEventListener('click', function(e){
-        input.value = e.target.innerText;
-        ul.innerHTML = '';
-        ul.style.display = 'none';
     });
 
 
